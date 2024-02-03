@@ -1,0 +1,76 @@
+div {
+    border: 0px solid palevioletred;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 38% 60%; 
+    margin: 10px 0px 0px 20px;
+}
+.elnevezes {
+    background-color: white;
+    border: none;  
+    cursor: pointer;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+.id {
+    color: gray;
+    font-size: 0.5rem;
+}
+.list {
+    max-height: 87vh;
+    overflow: auto;
+}
+.listItem {
+    border-top: 1px solid lightgray; 
+    display: grid;
+    grid-template-columns: auto auto}
+.listItem, .elnevezes, .id {
+    font-size: 1.0rem;
+}
+.idRow {
+font-size: 10px;
+color: gray;
+text-align: right;
+padding-top: 5px;
+}
+.receptview {
+    border: 1px solid lightgray;
+    line-height: 1.5;
+    margin: 0px 40px 0px 60px;
+    padding-bottom: 20px;
+}
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+    padding-left: 20px;
+    display: none;
+}
+.box_style {
+    padding-left: 20px;
+}
+#forras_cb {
+    text-align: center;
+    margin-top: 20px;
+}
+.image {
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+#elnevezes_cb {
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    background-color: rgb(243, 243, 243);
+    color: teal;
+    display: none;
+}
+#kep_cb{
+    background-color: rgb(243, 243, 243);
+}

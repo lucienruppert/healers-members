@@ -1,0 +1,53 @@
+table {font-family:Arial;font-size:12;color: white;}
+
+h5 {font-family:Arial;}
+h6 {font-family:Arial;}
+
+A {font-family:Arial;font-size:11; color: white;}
+A:link    {text-decoration: none; color: white;}
+A:active  {text-decoration: none; color: white;}
+A:visited {text-decoration: none; color: white;}
+A:hover   {text-decoration: underline; color: white;}
+
+A.selected {font-family:Arial;font-size:11; color: white;}
+A.selected:link    {text-decoration: none; color: white;}
+A.selected:active  {text-decoration: none; color: white;}
+A.selected:visited {text-decoration: none; color: white;}
+A.selected:hover   {text-decoration: underline; color: white;}
+
+A.categorized {font-family:Arial;font-size:11; color: white;}
+A.categorized:link    {text-decoration: none; color: white;}
+A.categorized:active  {text-decoration: none; color: white;}
+A.categorized:visited {text-decoration: none; color: white;}
+A.categorized:hover   {text-decoration: underline; color: white;}
+
+A.login {font-family:Arial;font-size:11; color: white;}
+A.login:link    {text-decoration: none; color: white;}
+A.login:active  {text-decoration: none; color: white;}
+A.login:visited {text-decoration: none; color: white;}
+A.login:hover   {text-decoration: underline; color: white;}
+
+A.mainCategory {font-family:Arial;font-size:11;font-weight:bold; color: white;}
+A.mainCategory:link    {text-decoration: none;font-weight:bold; color: white;}
+A.mainCategory:active  {text-decoration: none;font-weight:bold; color: white;}
+A.mainCategory:visited {text-decoration: none;font-weight:bold; color: white;}
+A.mainCategory:hover   {text-decoration: underline;font-weight:bold; color: white;}
+
+img {cursor:pointer;}
+
+span {font-family:Arial;font-size:9}
+span.white {font-family:Arial;font-size:9;color:white;}
+
+body {font-family:Arial;background:grey;
+                scrollbar-3dlight-color:silver;
+                scrollbar-arrow-color:silver;
+                scrollbar-track-color:white;
+                scrollbar-darkshadow-color:white;
+                scrollbar-face-color:silver;
+                scrollbar-highlight-color:black;
+                scrollbar-shadow-color:gray}        
+                
+
+td.forumHeader { background-color: #0B0B3B; color: #ffffff;}
+td.newsLetterHeader { background-color: #0B0B3B; color: #ffffff; font-size:9}
+td.newsLetterConcept { font-size:9}

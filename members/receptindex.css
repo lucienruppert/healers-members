@@ -1,0 +1,93 @@
+div {
+    border: 1px solid palevioletred;
+}
+.grid {
+    margin-top: 10px;
+}
+.elnevezes {
+    background-color: white;
+    border: none;  
+    cursor: pointer;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+.list {
+    max-height: 87vh;
+    overflow: auto;
+    padding: 10px 0px 0px 20px;
+    font-size: 0.9rem;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    background-color: white;
+}
+.listGrid {
+    margin-top: 120px;
+}
+.receptview {
+    border: 1px solid lightgray;
+    line-height: 1.5;
+    margin: 40px 40px 0px 80px;
+    padding-bottom: 20px;
+}
+.filter {
+    margin: 0px 5px 5px 0px;
+}
+.box_style {
+    padding-left: 20px;
+}
+#forras_cb {
+    text-align: center;
+    margin-top: 20px;
+}
+.image {
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+#elnevezes_cb {
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    background-color: rgb(243, 243, 243);
+    color: teal;
+    display: none;
+}
+#kep_cb{
+    background-color: rgb(243, 243, 243);
+}
+.listGrid {
+    display: grid;
+    grid-template-columns: 450px 300px; 
+    border-top: 1px solid lightgray; 
+    margin-left: 20px;
+}
+.titleRow {
+    display: grid;
+    grid-template-columns: 450px 80px 80px 80px 80px 80px 80px 80px 80px; 
+    font-size: 0.7rem;
+}
+.firstColumn {
+    width: 300px;
+}
+.buttonTitles {
+    font-weight: bold;
+    text-align: center;
+}
+.filterSelect {
+    background-color: lightgrey;
+}
+.filterRow {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px; 
+}
+#divMenuCont{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100vw - 20px);
+}

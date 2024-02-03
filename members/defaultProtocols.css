@@ -1,0 +1,79 @@
+div {
+      border: 0px solid red;
+}
+.grid {
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      justify-items: center;
+} 
+.one, .two, .three, .four {
+      width: 90%;
+      height: 70vh;
+      text-align: center;
+}
+.select {
+      text-align: center;
+      margin-top: 20px;
+}
+#select {
+      font-size: 1.2rem;
+}
+#select select {
+      display: none;
+}
+.container {
+      height: 65vh;
+      overflow: auto;
+      border: 1px solid gray;
+      border-radius: 10px;
+      margin-top: 10px;
+}
+input[type=button] {
+      white-space: normal;
+}
+.bottomDiv {
+      display: grid;
+      justify-items: center;
+}
+.saveButton {
+      cursor: pointer;
+      border: none;
+      color: white;
+      width: 600px;
+      padding: 15px 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-top: 10px;
+}
+.supplement, .recommendation {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      padding: 3px;
+}
+.topDiv {
+      margin: 30px 0px 20px 0px;
+}
+.draggable {
+      margin: 5px;
+      text-align: left;
+      padding-left: 10px;
+      font-size: 0.9rem;
+}
+.divTitle {
+      color: lightgray;
+}
+.target, #save {
+      display: none
+}
+.draggable.dragged {
+      background-color: #F0F0F0;
+}
+.container.not-allowed:hover {
+      cursor: no-drop !important;
+}
+.container.not-allowed {
+      cursor: no-drop !important;
+}

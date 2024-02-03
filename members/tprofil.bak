@@ -1,0 +1,192 @@
+<?php
+    session_start();
+    include_once('functions.php');
+
+    $questUsers = selectQuestUsers();
+?>
+
+<html>
+<head>
+    <title>T-Profil</title>
+    <meta http-equiv="content-type" content=<?php print "'text-html; charset=$CHARSET'"; ?>>
+    <link rel=stylesheet type='text/css' href='baseStyle2.css'>
+    <style>
+        html, body, table {
+            height:100%;
+        }
+
+        div.kitoltes, #divQuestFill {
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        div.userName {
+            font-size: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        div.consultant {
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        div.groupName {
+            font-weight: bold;
+            font-size: 16pt;
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            padding-left: 100px;
+        }
+        div.question {
+            font-size: 12pt;
+            margin-top: 15px;
+            font-weight: bold;
+            padding-left: 120px;
+        }
+        div.answer {
+            font-size: 12pt;
+            margin-top: 15px;
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+        div.divJobbBlokk{
+            font-size: 12pt;
+            margin-left: 5px;
+            margin-top: 0px;
+        }
+        div.divJobbGroup{
+            margin-top: 20px;
+        }
+        div.divJobbOptions{
+            margin-top: 7px;
+        }
+        input[type=button]#btnDone{
+            font-size: 16pt;
+            font-weight: bold;
+            width: 200px;
+            height: 60px;
+        }
+        div.divJobbGomb{
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="underscore-min.js"></script>
+    <script>
+        var fillId = null;
+
+        $(document).ready(function () {
+            $("div.kitoltes").click(function () {
+                $("#divQuestFill").html("");
+                fillId = null;
+                var fid = $(this).data("myid");
+                $.get("tprofilServer.php", { id: fid }, function (result) {
+                    if(result.success) {
+                        fillId = fid;
+                        $("#divQuestFill").append($("<div class='userName'>" + htmlEncode(result.userName) + "</div>"));
+                        $("#divQuestFill").append($("<div class='consultant'>" + "tanácsadó: " + htmlEncode(result.consultant) + "</div>"));
+                        var answers = _.sortBy(result.answers, "groupId");
+                        var groupName = null;
+                        var myTable = $("<table style='width:100%'></table>");
+                        var myRow, myCell;
+                        for(var i = 0; i < answers.length; i++){
+                            var group = answers[i];
+                            if(group.groupName != groupName){
+                                myRow = $("<tr></tr>");
+                                myCell = $("<td colspan='2'></td>");
+
+                                myCell.append($("<br><hr>"));
+                                myRow.append(myCell);
+                                
+                                myTable.append(myRow);
+
+                                myRow = $("<tr></tr>");
+                                myCell = $("<td colspan=2></td>");
+
+                                myCell.append($("<div class='groupName'>" + htmlEncode(group.groupName) + "</div>"));
+                                myRow.append(myCell);
+                                
+                                myTable.append(myRow);
+
+                                groupName = group.groupName;
+                            }
+
+                            myRow = $("<tr></tr>");
+                            myCell = $("<td style='vertical-align:top'></td>");
+                            myCell.append($("<div class='question'>" + htmlEncode(group.question) + "</div>"));
+                            myRow.append(myCell);
+
+                            myCell = $("<td style='vertical-align:top'></td>");
+                            myCell.append($("<div class='answer'>" + htmlEncode(group.answer).replace(/(?:\r\n|\r|\n)/g, '<br>') + "</div>"));
+                            myRow.append(myCell);
+
+                            myTable.append(myRow);
+                        }
+                        $("#divQuestFill").append(myTable);
+                    }
+                    else {
+                        $("#divQuestFill").html("");
+                    }
+                });
+            });
+            $("#btnDone").click(function () {
+                if(fillId !== null)
+                    window.open("ajanlas.php?id=" + fillId + "&acstipus=" + getRadioValue("acstipus"), "_blank");
+            });
+        });
+        function htmlEncode(value){
+            return $("<div/>").text(value).html();
+        }
+        function getRadioValue(name){
+            return $('input[name=' + name + ']:checked').val();
+        }
+    </script>
+</head>
+<body>
+    <table cellspacing="0" cellpadding="0" style="width:100%;" border="1">
+        <colgroup>
+            <col style="width:300px">
+            <col>
+            <col style="width:300px">
+        </colgroup>
+        <tr>
+            <td style="vertical-align:top;height:100%;">
+            <div style="height:100%;overflow:auto;">
+            <?php
+                foreach($questUsers as $user){
+                    $datum = substr($user["crdti"], 0, 10);
+                    print "<div class='kitoltes' data-myid='${user["ID"]}'><b>$datum</b> ${user["userName"]}</div>";
+                }
+            ?>
+            </div>
+            </td>
+            <td style="vertical-align:top;height:100%;">
+                <div id="divQuestFill"></div>
+            </td>
+            <td style="vertical-align:top;height:100%;">
+                <div class="divJobbBlokk">
+                    <div class="divJobbGroup">ANYAGCSERE TÍPUS</div>
+                    <div class="divJobbOptions">
+                        <input type="radio" id="acstipus_ch" name="acstipus" value="ch"><label for="acstipus_ch">CH</label><br>
+                        <input type="radio" id="acstipus_balch" name="acstipus" value="balch"><label for="acstipus_balch">BAL-CH</label><br>
+                        <input type="radio" id="acstipus_balfpro" name="acstipus" value="balfpro"><label for="acstipus_balfpro">BAL-F-PRO</label><br>
+                        <input type="radio" id="acstipus_fatpro" name="acstipus" value="fatpro"><label for="acstipus_fatpro">FAT-PRO</label><br>
+                    </div>
+                </div>
+                <div class="divJobbGomb"><input type="button" id="btnDone" value="KÉSZ"><div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

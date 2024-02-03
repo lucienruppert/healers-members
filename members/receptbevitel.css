@@ -1,0 +1,71 @@
+.grid {
+    display: grid;
+    grid-template-columns: 45% 38% 17%;
+    height: 100vh;
+}
+#controlbox {
+    max-height: 90vh;
+    overflow: auto;
+    margin: 0px 40px 10px 20px;
+}
+#elnevezes_cb {
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+    background-color: lightgray;
+}
+#elkeszites_cb {
+    text-align: justify;
+}
+.box_style {
+    font-size: 1rem;
+}
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+    display: none;
+}
+#alkoto_cb {
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;    
+}
+#saveButton, #kepButton{
+    text-align: center;
+    margin-top: 10px;
+} 
+#createButton {
+    padding: 12px 135px 12px 135px;
+    background-color: lightgray;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.elnevezes {
+    background-color: white;
+    border: none;  
+    cursor: pointer;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+#list {
+    max-height: 85vh;
+    max-width: 20vw;
+    overflow: auto;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.image {
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    padding: 20px 0px 0px 0px;
+}
+#kep_cb{
+    background-color: lightgray;
+}

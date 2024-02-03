@@ -1,0 +1,53 @@
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh;
+    margin-top: 100px;
+}
+.saveButton {
+    text-align: center;
+} 
+.button {
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+}
+a {
+    text-decoration: none;
+    color: black;
+    line-height: 1.5;
+}
+.listItem {
+    background-color: white;
+    border: none;  
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+}
+#list {
+    max-height: 50vh;
+    overflow: auto;
+    margin-right: 40px;
+}
+textarea  {
+    font-size: 1.3rem;
+    padding: 10px;
+}
+#nev {
+    background-color: #E5E4E2;
+}
+::placeholder {
+    color: lightgray;
+}
+#message {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: green;
+    margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+<html style='background-color: black; color: yellow; font-size: 1.5rem'>
+<head>
+  <title>Teszt</title>
+  <style>
+  </style>
+</head>
+<body>
+Teszt
+
+<script>
+
+
+let number = 100
+let binaryArray = []
+let divisonResult = 1
+let remainder = 1
+while (number > 0) {
+	binaryArray.push(number%2)
+	number = Math.floor(number/2)
+}
+
+console.log(binaryArray.reverse().toString().replace(/,/g,''))
+
+// 100/2 = 50 => 0 (1)
+// 50/2 = 25 => 0 (2)
+// 25/2 = 12 => 1 (4)
+// 12/2 = 6 => 0 (8)
+// 6/2 = 3 => 0 (16)
+// 3/2 = 1 => 1 (32)
+// 1/2 = 0 => 1 (64)
+
+let number2 = 34
+console.log(number2.toString(2))
+
+</script>
+</body>
+</html>
+
+
