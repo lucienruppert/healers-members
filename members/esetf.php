@@ -537,7 +537,7 @@ if ($isTest) {
 			$("#divSolutionSteps").on("change", ".cbSolutionSteps", function() {
 				$.post("storeCheckbox.php", {
 					type: 2,
-					fillId: fillId,
+					fillId: fillId,		
 					value: $(this).val(),
 					isChecked: ($(this).prop("checked") ? 1 : 0)
 				}, function(result) {
