@@ -16,7 +16,7 @@
             foreach($QuestionListByGroup as $_questionRow){
                 $ID = $_questionRow["ID"];
                 $isRequired = $_questionRow["required"];
-                //ÍGY LEHET TESZTELNI:
+                //ï¿½GY LEHET TESZTELNI:
                 //$isRequired = false;
                 $isFilled = false;
 
@@ -62,7 +62,7 @@
     if($saved){
         $fillId = saveQuestFill($_POST[133], 666, $consultantId);
         foreach($queryList as $query){
-            $query = str_replace("ßplaceholderß", $fillId, $query);
+            $query = str_replace("ï¿½placeholderï¿½", $fillId, $query);
             $result = mysql_query($query);
             if(!$result){
                 print mysql_error();
@@ -195,8 +195,8 @@
 <td>
 
     <table border='0' width='100%'>
-    <tr><td style='padding-top:50px;font-size:40pt;text-align:center;color:#1B5A09'><b>Esetfelmérõ kérdõív</b></td></tr>
-    <tr><td style='padding-top:50px;font-size:12pt;text-align:justify;line-height:150%;color:#000000'>Ha a beviteli mezõ méreténél hosszabb választ szeretnél írni, azt nyugodtan megteheted, mert a rendszer így is eltárolja. A megadott információt Adatvédelmi Nyilatkozatunknak megfelelõen kezeljük, csak az együttmûködés idejére tároljuk és kérésre azonnal töröljük.</td></tr> 
+    <tr><td style='padding-top:50px;font-size:40pt;text-align:center;color:#1B5A09'><b>Esetfelmï¿½rï¿½ kï¿½rdï¿½ï¿½v</b></td></tr>
+    <tr><td style='padding-top:50px;font-size:12pt;text-align:justify;line-height:150%;color:#000000'>Ha a beviteli mezï¿½ mï¿½retï¿½nï¿½l hosszabb vï¿½laszt szeretnï¿½l ï¿½rni, azt nyugodtan megteheted, mert a rendszer ï¿½gy is eltï¿½rolja. A megadott informï¿½ciï¿½t Adatvï¿½delmi Nyilatkozatunknak megfelelï¿½en kezeljï¿½k, csak az egyï¿½ttmï¿½kï¿½dï¿½s idejï¿½re tï¿½roljuk ï¿½s kï¿½rï¿½sre azonnal tï¿½rï¿½ljï¿½k.</td></tr> 
     <tr><td style='padding-top:20px;text-align:center;font-size:9pt'>&copy; Minden jog fenntartva.</td></tr>
     </table>
 
@@ -242,12 +242,12 @@
                 if($_questionRow["required"])
                     $classes[] = "required";
 
-            // KÉRDÉSEK ;
+            // Kï¿½RDï¿½SEK ;
             ?>
               <tr align="left">
                 <td style='padding-top:50px;padding-bottom:20px;align:justify;line-height:150%;font-size:20px'>
                     <span class=<? echo "'" . implode(" ", $classes) . "'"; ?> style="font-weight:bold"><? echo $_questionRow["Name"];?></span>
-                    <? echo $isReqError ? "<div class='reqErrorMessage'>A kérdés megválaszolása kötelezõ</div>" : ""; ?>
+                    <? echo $isReqError ? "<div class='reqErrorMessage'>A kï¿½rdï¿½s megvï¿½laszolï¿½sa kï¿½telezï¿½</div>" : ""; ?>
                 </td>
               </tr>
               <? if($_questionRow["img_name"]){ ?>
@@ -276,7 +276,7 @@
                                     $radioArray = explode(";", $_questionRow["Values"]);
                                     for($i=0;$i<count($radioArray);$i++)
                                     {
-                                        list($key, $val) = explode("ß", $radioArray[$i]);
+                                        list($key, $val) = explode("ï¿½", $radioArray[$i]);
 
                                         if($_POST[$ID] != null && (int)$_POST[$ID] === $i)
                                             $chk="checked";
@@ -287,7 +287,7 @@
                                         <?
                                     } ?>
                                     <?php if($_questionRow["other_use"]){ ?>
-                                    <p><span style="display:inline-block;height:80px;vertical-align:middle;margin-right:10px">Egyéb:</span><textarea style="font-size:26px;width:600px;" name="<?echo $ID."_egyeb";?>" id="<?echo $ID."_egyeb";?>" rows=2><?echo $_POST[$ID . '_egyeb'];?></textarea></p>
+                                    <p><span style="display:inline-block;height:80px;vertical-align:middle;margin-right:10px">Egyï¿½b:</span><textarea style="font-size:26px;width:600px;" name="<?echo $ID."_egyeb";?>" id="<?echo $ID."_egyeb";?>" rows=2><?echo $_POST[$ID . '_egyeb'];?></textarea></p>
                                     <?php } ?>
                             </td>
                         </tr>
@@ -300,7 +300,7 @@
                                     $chkArray = explode(";", $_questionRow["Values"]);
                                     for($i=0;$i<count($chkArray);$i++)
                                     {
-                                        list($key, $val) = explode("ß", $chkArray[$i]);
+                                        list($key, $val) = explode("ï¿½", $chkArray[$i]);
 
                                         if($_POST[$ID] != null && in_array($key, $_POST[$ID]))
                                             $selected = "checked";
@@ -310,7 +310,7 @@
                                     <p><label class='groupOption'><input type="checkbox" name="<? echo $ID . '[]'; ?>" id="<?echo $ID."_".$key;?>" value="<? echo $key; ?>" <?echo $selected;?> /><?echo $val;?></label></p>
                                 <? } ?>
                                 <?php if($_questionRow["other_use"]){ ?>
-                                <p><span style="display:inline-block;height:80px;vertical-align:middle;margin-right:10px">Egyéb:</span><textarea style="font-size:26px;width:600px;" name="<?echo $ID."_egyeb";?>" id="<?echo $ID."_egyeb";?>" rows=2><?echo $_POST[$ID . '_egyeb'];?></textarea></p>
+                                <p><span style="display:inline-block;height:80px;vertical-align:middle;margin-right:10px">Egyï¿½b:</span><textarea style="font-size:26px;width:600px;" name="<?echo $ID."_egyeb";?>" id="<?echo $ID."_egyeb";?>" rows=2><?echo $_POST[$ID . '_egyeb'];?></textarea></p>
                                 <?php } ?>
                             </td>
                         </tr>
@@ -323,7 +323,7 @@
                                     $listArray = explode(";", $_questionRow["Values"]);
                                     for($i=0;$i<count($listArray);$i++)
                                     {
-                                        list($key, $val) = explode("ß", $listArray[$i]);
+                                        list($key, $val) = explode("ï¿½", $listArray[$i]);
 
                                         if($_POST[$ID] != null && (int)$_POST[$ID] === $i)
                                             $chk="selected";
@@ -346,10 +346,10 @@
     <? } ?>
 </td>
 </tr>
-<tr><td style="padding-top: 20px;"><input type="checkbox" id="cbAdatv" value="1"><label for="cbAdatv">Megértettem és elfogadtam az <a href="https://yourhealth.store/at/" target="_blank">Adatvédelmi Tájékoztatót.</a></label></td></tr>
+<tr><td style="padding-top: 20px;"><input type="checkbox" id="cbAdatv" value="1"><label for="cbAdatv">Megï¿½rtettem ï¿½s elfogadtam az <a href="https://yourhealth.store/at/" target="_blank">Adatvï¿½delmi Tï¿½jï¿½koztatï¿½t.</a></label></td></tr>
 <tr>
 <td align='center' height='200'>
-<input style='padding-top:20px;padding-bottom:20px;padding-left:50px;padding-right:50px;font-size:25px;font-weight:bold;color:#ffffff;background: rgba(27, 90, 9,1);cursor:pointer' type='button' name='btnNewDesire' value='ELKÜLD' onclick="if(!$('#cbAdatv').prop('checked')){ alert('Kérjük fogadja el az Adatvédelmi Tájékoztatót!'); return; } $(this).prop('disabled', true);with(document.forms[0]){ submit(); }">
+<input style='padding-top:20px;padding-bottom:20px;padding-left:50px;padding-right:50px;font-size:25px;font-weight:bold;color:#ffffff;background: rgba(27, 90, 9,1);cursor:pointer' type='button' name='btnNewDesire' value='ELKï¿½LD' onclick="if(!$('#cbAdatv').prop('checked')){ alert('Kï¿½rjï¿½k fogadja el az Adatvï¿½delmi Tï¿½jï¿½koztatï¿½t!'); return; } $(this).prop('disabled', true);with(document.forms[0]){ submit(); }">
 </td>
 </tr>
 </table>

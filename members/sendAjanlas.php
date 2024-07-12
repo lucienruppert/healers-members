@@ -144,7 +144,7 @@
             $body .= "<tr><td colspan='2'><br><hr></td></tr><tr><td colspan='2'><div class='groupName'>${group['groupName']}</div></td></tr>";
             $groupName = $group['groupName'];
         }
-        $body .= "<tr><td style='vertical-align:top'><div class='question'>${group['question']}</div></td><td style='vertical-align:top;'><div class='answer'>" . str_replace(utf8_encode("ß2"), "</span>", str_replace(utf8_encode("ß1"), "<span class='otherAnswer'>", $group['answer'])) . "</div></td></tr>";
+        $body .= "<tr><td style='vertical-align:top'><div class='question'>${group['question']}</div></td><td style='vertical-align:top;'><div class='answer'>" . str_replace(utf8_encode("ï¿½2"), "</span>", str_replace(utf8_encode("ï¿½1"), "<span class='otherAnswer'>", $group['answer'])) . "</div></td></tr>";
     }
     $body .= "</table>";
     $body = "<table cellspacing='0' cellpadding='0' style='width:100%;' border='1'><tr><td style='vertical-align:top;height:100%;'><div id='divQuestFill'>$body</div></td></tr></table>";
@@ -154,11 +154,11 @@
     if(in_array($target, array("marina.boviz@gmail.com", "fitdiet4life@gmail.com", "g.farkaslilla@gmail.com", "eva@airmid.hu", "magdolna.buzasne@gmail.com" , "judit.komaromi.nemes@icloud.com" , "luciendelmar@gmail.com")))
         $email = $target;
     else{
-        if($data['consultant'] == utf8_encode("Bõvíz Marina")){
+        if($data['consultant'] == utf8_encode("Bï¿½vï¿½z Marina")){
             $email = "marina.boviz@gmail.com";
             //$email = "luciendelmar@gmail.com";
         }
-        else if($data['consultant'] == utf8_encode("Nagy-Rigó Anita")){
+        else if($data['consultant'] == utf8_encode("Nagy-Rigï¿½ Anita")){
             $email = "fitdiet4life@gmail.com";
             //$email = "luciendelmar@gmail.com";
         }
@@ -166,23 +166,23 @@
             $email = "g.farkaslilla@gmail.com";
             //$email = "luciendelmar@gmail.com";
         }
-        else if($data['consultant'] == utf8_encode("MacPherson Éva")){
+        else if($data['consultant'] == utf8_encode("MacPherson ï¿½va")){
             $email = "eva@airmid.hu";
             //$email = "luciendelmar@gmail.com";
         }
-        else if($data['consultant'] == utf8_encode("László Magdolna")){
+        else if($data['consultant'] == utf8_encode("Lï¿½szlï¿½ Magdolna")){
             $email = "magdolna.buzasne@gmail.com";
             //$email = "luciendelmar@gmail.com";
 
         }
-        else if($data['consultant'] == utf8_encode("Komáromi-Nemes Judit")){
+        else if($data['consultant'] == utf8_encode("Komï¿½romi-Nemes Judit")){
             $email = "judit.komaromi.nemes@icloud.com";
             //$email = "luciendelmar@gmail.com";
-
-     }
-
-    if($email != null && endiMail($email, "${data['userName']} - Táplálkozási profil", $body, "Lucien del Mar", "luciendelmar@gmail.com", array(), array(), array(), 'utf-8', array(), $head))
+        }
+    }
+    if($email != null && endiMail($email, "${data['userName']} - Tï¿½plï¿½lkozï¿½si profil", $body, "Lucien del Mar", "luciendelmar@gmail.com", array(), array(), array(), 'utf-8', array(), $head))
         print(json_encode(true));
-    else
+    else {
         print(json_encode(false));
+    }
 ?>
